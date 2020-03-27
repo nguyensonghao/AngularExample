@@ -1,0 +1,31 @@
+#list-excel-page {
+    background: white;
+    margin: 6px;
+    padding: 20px;
+    min-height: calc(100% - 12px);
+    table {
+        th, td {
+            font-size: 14px;
+        }
+        .btn-group {
+            .btn {
+                font-size: 12px;
+                &.btn-primary {
+                    background-color: #398feb;
+                    border-color: #398feb;
+                }
+            }
+        }
+        td {
+            padding: 8px;
+        }
+    }
+    .title-page {
+		margin-bottom: 40px;
+		border-bottom: 1px solid #eae9e9;
+		font-size: 18px;
+    }
+    .center {
+        text-align: center;
+    }
+}

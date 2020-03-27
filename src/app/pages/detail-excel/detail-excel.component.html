@@ -1,0 +1,42 @@
+<div id="detail-excel-page">
+  <div class="title-page">{{report.title}}</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Họ và tên</th>
+        <th scope="col">Chức vụ</th>
+        <th scope="col">Lương chính</th>
+        <th scope="col">Lương thực nhận</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col">Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of listEmployee">
+        <td>{{employee['STT']}}</td>
+        <td>{{employee['Họ và tên']}}</td>
+        <td>{{employee['Chức vụ']}}</td>
+        <td>{{employee['Lương chính'] | salary | number: 0}} <span class="unit-price">VNĐ</span></td>
+        <td>{{employee['Lương thực nhận'] | salary | number: 0}} <span class="unit-price">VNĐ</span></td>
+        <td>
+          <span class="badge badge-danger" *ngIf="!employee['sent']">Chưa gửi</span>
+          <span class="badge badge-success" *ngIf="employee['sent']">Đã gửi</span>
+        </td>
+        <td>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary btn-sm" (click)="detail(employee)">Chi tiết</button>
+            <button type="button" class="btn btn-light btn-sm" (click)="reSend(employee)">
+              <span class="spinner-border spinner-border-sm" *ngIf="employee.reSending"></span>
+              {{employee.reSending ? 'Đang gửi' : 'Gửi lại'}}              
+            </button>
+          </div>
+        </td>
+      </tr>      
+    </tbody>
+  </table>
+  <div class="message-send-email-success" *ngIf="showMessageSendEmailSuccess">Gửi thành công!</div>
+  <view-excel [employee]="employee" 
+    (change)="hideDetail(event)"
+    *ngIf="showDetail"></view-excel>
+</div>

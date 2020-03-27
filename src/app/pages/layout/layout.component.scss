@@ -1,0 +1,15 @@
+#main-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 55px;
+	bottom: 0;
+	display: flex;
+}
+
+#main {
+	background: #e4e5e6;
+	height: 100%;
+    width: calc(100% - 200px);
+    overflow: auto;
+}

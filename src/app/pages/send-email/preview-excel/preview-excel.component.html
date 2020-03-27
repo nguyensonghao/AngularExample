@@ -1,0 +1,51 @@
+<div class="preview-excel-modal">
+  <div class="preview-excel-container">
+    <div class="preview-excel-content">
+      <table>
+        <thead>
+          <tr>
+            <th class="center">STT</th>          
+            <th>Họ và tên</th>
+            <th>Địa chỉ mail</th>
+            <th>Chức vụ</th>
+            <th>Lương chính</th>
+            <th>Số ngày công trong tháng</th>
+            <th>Ngày nghỉ phép có lương</th>
+            <th>Ngày nghỉ phép không lương</th>
+            <th>Số ngày đi làm thực tế</th>
+            <th>Trừ ngày nghỉ không lương</th>
+            <th>Phụ cấp máy tính</th>
+            <th>Trừ đi muộn</th>
+            <th>Lương thực nhận</th>
+          </tr>          
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of listEmployee">
+            <td class="center">{{employee['STT']}}</td>                        
+            <td>{{employee['Họ và tên']}}</td>
+            <td>{{employee['Địa chỉ mail']}}</td>
+            <td>{{employee['Chức vụ']}}</td>
+            <td>{{employee['Lương chính'] | salary | number: 0}}</td>
+            <td>{{employee['Số ngày công trong tháng']}}</td>
+            <td>{{employee['Ngày nghỉ phép có lương']}}</td>
+            <td>{{employee['Ngày nghỉ phép không lương']}}</td>
+            <td>{{employee['Số ngày đi làm thực tế']}}</td>
+            <td>{{employee['Trừ ngày nghỉ không lương'] | salary | number: 0}}</td>
+            <td>{{employee['Phụ cấp máy tính'] | salary | number: 0}}</td>
+            <td>{{employee['Trừ đi muộn'] | salary | number: 0}}</td>
+            <td>{{employee['Lương thực nhận'] | salary | number: 0}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview-excel-footer">
+      <button class="btn btn-upload" (click)="send()">
+        <span class="spinner-border spinner-border-sm" *ngIf="sending"></span>
+        Gửi thông báo
+      </button>
+      <button class="btn btn-cancel" (click)="closeModal()">
+        Hủy
+      </button>      
+    </div>
+  </div>
+</div>

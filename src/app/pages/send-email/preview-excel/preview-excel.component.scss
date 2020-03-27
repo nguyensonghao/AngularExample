@@ -1,0 +1,71 @@
+.preview-excel-modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #00000080;
+    z-index: 1;
+    padding: 30px;
+    .preview-excel-container {
+        background: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+        position: relative;
+        .preview-excel-content {
+            position: absolute;
+            top: 0;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            overflow: auto;
+            table {
+                th, td {
+                    font-size: 13px;
+                    padding: 6px;
+                    border: 1px solid #ddd;
+                    &.center {
+                        text-align: center;
+                    }
+                }
+                tbody {
+                    tr {
+                        &:nth-child(2n + 1) {
+                            background: #f0f0f0;
+                        }
+                    }
+                }
+            }
+        }
+        .preview-excel-footer {
+            background: white;
+            border-top: 1px solid #ddd;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            justify-content: flex-end;
+            display: flex;
+            align-items: center;
+            padding-right: 10px;
+            .btn-upload {
+                background: #20a8d8;
+                font-size: 14px;
+                color: white;
+                margin-right: 10px;
+                .loading-icon {
+                    height: 20px;
+                    margin-right: 6px;
+                }
+            }
+            .btn-cancel {
+                font-size: 14px;
+                color: black;
+                background: #e8e5e5;
+                border: 1px solid #cbc9c9;             
+            }
+        }
+    }
+}

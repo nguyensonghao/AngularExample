@@ -1,0 +1,44 @@
+.view-excel {    
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #00000063;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .view-excel-content {
+        background: white;
+        width: 640px;
+        border-radius: 2px;
+        padding: 20px;
+        position: relative;
+        max-height: 550px;
+        .detail-item {
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f2f2f2;
+            padding-bottom: 6px;
+            .unit-price {
+                // font-weight: bold;
+                font-size: 10px;
+            }
+        }
+        .btn-close {
+            width: 40px;
+            height: 40px;
+            background: #495057;
+            position: absolute;
+            right: -16px;
+            top: -16px;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+    }
+}

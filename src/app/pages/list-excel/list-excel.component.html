@@ -1,0 +1,31 @@
+<div id="list-excel-page">
+  <div class="title-page">Danh sách file Excel</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tiêu đề</th>
+        <th scope="col">Ngày tải lên</th>
+        <th scope="col" class="center">Tổng nhân viên</th>
+        <th scope="col" class="center">Gửi thành công</th>
+        <th scope="col" class="center">Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of listReport; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{report.title}}</td>
+        <td>{{report.createdAt | date: 'medium'}}</td>
+        <td class="center">{{report.totalEmployee}}</td>
+        <td class="center">{{report.totalSendSuccess}}</td>
+        <td class="center">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-sm btn-danger" (click)="delete(report._id)">Xóa</button>
+            <button type="button" class="btn btn-sm btn-primary" [routerLink]="['/excel', report._id]">Chi tiết</button>
+            <button type="button" class="btn btn-sm btn-light" (click)="download(report.fileName)">Tải xuống</button>
+          </div>
+        </td>
+      </tr>      
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+<div id="left-menu">
+  <ul>
+    <li class="left-menu-header">
+      <span>Admin Panel</span>
+    </li>
+    <li>
+      <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <div class="menu-icon">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </div>						
+        <span>Gửi Email</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/danh-sach-excel']" routerLinkActive="active-link">
+        <div class="menu-icon">
+          <i class="fa fa-bar-chart" aria-hidden="true"></i>
+        </div>
+        <span>Danh sách excel</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/doi-mat-khau']" routerLinkActive="active-link">
+        <div class="menu-icon">
+          <i class="fa fa-key" aria-hidden="true"></i>
+        </div>
+        <span>Đổi mật khẩu</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="logout()">
+        <div class="menu-icon">
+          <i class="fa fa-power-off" aria-hidden="true"></i>
+        </div>
+        <span>Đăng xuất</span>
+      </a>
+    </li>
+  </ul>
+  <div class="copy-right">
+    <p>©Copyright 2019 Minder</p>
+  </div>
+</div>

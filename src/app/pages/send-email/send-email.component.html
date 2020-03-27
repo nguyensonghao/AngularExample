@@ -1,0 +1,43 @@
+<div id="send-email-page">
+  <div class="title-page">Gửi thông báo cho nhân viên</div>
+  <form [formGroup]="formSend" (ngSubmit)="send()">
+    <div class="form-group">
+      <label for="title">Nhập tiêu đề</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+    </div>
+    <p class="validate-error" *ngIf="formSend.get('title').errors && isValidFormSubmitted != null && !isValidFormSubmitted">
+      Tiêu đề không được để trống
+    </p>
+    
+    <div class="form-group">
+      <label for="file">Chọn file excel để tải lên</label>
+      <input type="file" class="form-control hidden" (change)="fileEvent($event)"
+        #fileInput id="file" formControlName="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+      <p class="file-name">{{fileName}}</p>
+    </div>
+    <p class="validate-error" *ngIf="formSend.get('file').errors && isValidFormSubmitted != null && !isValidFormSubmitted">
+      File excel không được để trống
+    </p>
+
+    <div class="alert alert-danger message-error mt-4" role="alert" *ngIf="isError">
+      {{messageError}}
+    </div>
+
+    <div class="alert alert-success message-error mt-4" role="alert" *ngIf="isSuccess">
+      Gửi email thành công!
+    </div>
+
+    <button type="submit" class="btn btn-upload" *ngIf="!isValidating && !isSending">Xác thực và xem lại</button>
+    
+    <button type="submit" class="btn btn-upload" *ngIf="isValidating">
+      <span class="spinner-border spinner-border-sm"></span>
+      Xác thực
+    </button>    
+  </form>  
+  <preview-excel 
+    *ngIf="isShowPreview" 
+    (close)="closePreview()" 
+    (sendEmail)="sendEmail()"
+    [listEmployee]="listEmployeePreview">
+  </preview-excel>
+</div>

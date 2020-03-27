@@ -1,0 +1,62 @@
+<div id="login-page" class="main-content">
+  <div>
+    <div class="card-group">
+      <div class="card p-4">
+        <div class="card-body">
+          <form [formGroup]="formLogin" (ngSubmit)="login()">
+            <h1 class="login-title">Đăng nhập hệ thống</h1>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-user-o" aria-hidden="true"></i>
+                </span>
+              </div>
+              <input name="username" type="text" class="form-control"
+                formControlName="username" placeholder="Tài khoản">              
+            </div>
+            <p class="validate-error" *ngIf="formLogin.get('username').errors && isValidFormSubmitted != null && !isValidFormSubmitted">
+              Tài khoản không được để trống
+            </p>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa-key" aria-hidden="true"></i>
+                </span>
+              </div>
+              <input name="password" type="password" class="form-control" 
+                formControlName="password" placeholder="Mật khẩu" >
+            </div>
+
+            <validate-password
+              [form]="formLogin"
+              [name]="'password'"
+              [submited]="isValidFormSubmitted">              
+            </validate-password>
+
+            <div class="alert alert-danger message-error mt-4" role="alert" *ngIf="isError">
+              {{messageError}}
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-primary btn-login" type="submit">
+                  <span class="spinner-border spinner-border-sm" *ngIf="isCalling"></span>
+                  Đăng nhập
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card text-white bg-primary py-5 d-md-down-none login-box-right">
+        <div class="card-body text-center">
+          <div>
+            <h2 class="sub-title">Hệ thống thông báo lương cho nhân viên hàng tháng</h2>
+            <img src="assets/images/gmail.png"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="view-excel">
+  <div class="view-excel-content">
+    <div class="btn-close" (click)="hide()">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="detail-item">STT: {{employee['STT']}}</div>
+    <div class="detail-item">Họ và tên: {{employee['Họ và tên']}}</div>
+    <div class="detail-item">Chức vụ: {{employee['Chức vụ']}}</div>
+    <div class="detail-item">Lương chính: {{employee['Lương chính'] | salary | number: 0}} <span class="unit-price">VNĐ</span></div>
+    <div class="detail-item">Số ngày công trong tháng: {{employee['Số ngày công trong tháng']}}</div>
+    <div class="detail-item">Ngày nghỉ phép có lương: {{employee['Ngày nghỉ phép có lương']}}</div>
+    <div class="detail-item">Ngày nghỉ phép không lương: {{employee['Ngày nghỉ phép không lương']}}</div>
+    <div class="detail-item">Số ngày đi làm thực tế: {{employee['Số ngày đi làm thực tế']}}</div>
+    <div class="detail-item">Trừ ngày nghỉ không lương: {{employee['Trừ ngày nghỉ không lương'] | salary | number: 0}} <span class="unit-price">VNĐ</span></div>
+    <div class="detail-item">Phụ cấp máy tính: {{employee['Phụ cấp máy tính'] | salary | number: 0}} <span class="unit-price">VNĐ</span></div>
+    <div class="detail-item">Trừ đi muộn: {{employee['Trừ đi muộn'] | salary | number: 0}} <span class="unit-price">VNĐ</span></div>
+    <div class="detail-item">Lương thực nhận: {{employee['Lương thực nhận'] | salary | number: 0}} <span class="unit-price">VNĐ</span></div>
+    <div class="detail-item">
+      Trạng thái: 
+      <span class="badge badge-danger" *ngIf="!employee['sent']">Chưa gửi</span>
+      <span class="badge badge-success" *ngIf="employee['sent']">Đã gửi</span>
+    </div>
+    <div class="detail-item" *ngIf="!employee['sent']">
+      Nguyên nhân: {{employee['message']}}
+    </div>
+  </div>
+</div>

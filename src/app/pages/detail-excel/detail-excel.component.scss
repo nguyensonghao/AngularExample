@@ -1,0 +1,46 @@
+#detail-excel-page {
+    background: white;
+    margin: 6px;
+    padding: 20px;
+    min-height: calc(100% - 12px);
+    table {
+        th, td {
+            font-size: 14px;
+        }
+        .btn-group {
+            .btn {
+                font-size: 11px;
+                &.btn-primary {
+                    background-color: #398feb;
+                    border-color: #398feb;
+                }
+            }
+        }
+        td {
+            padding: 8px;
+            span.unit-price {
+                // font-weight: bold;
+                font-size: 10px;
+            }
+        }
+    }
+    .title-page {
+		margin-bottom: 40px;
+		border-bottom: 1px solid #eae9e9;
+		font-size: 18px;
+    }
+    .center {
+        text-align: center;
+    }
+    .message-send-email-success {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background: #398feb;
+        color: white;
+        font-size: 14px;
+        width: 150px;
+        padding: 6px;
+        text-align: center;
+    }
+}

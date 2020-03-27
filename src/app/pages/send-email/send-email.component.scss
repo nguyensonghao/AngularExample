@@ -1,0 +1,52 @@
+#send-email-page {
+    background: white;
+    margin: 6px;
+    padding: 20px;
+    min-height: calc(100% - 12px);
+    .hidden {
+        display: none;
+    }    
+    form {
+        label[for="file"] {
+            background: #f0f0f0;
+            padding: 6px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            color: #222222;
+            cursor: pointer;
+            border: 1px solid #d7d7d7;
+        }
+        .btn-upload {
+            background: #20a8d8;
+            font-size: 14px;
+            color: white;
+            .loading-icon {
+                height: 20px;
+                margin-right: 6px;
+            }
+        }
+        input {
+            width: 450px;
+            font-size: 14px;
+        }
+        .validate-error {
+            color: red;
+            font-size: 12px;
+        }
+        .message-error {
+            font-size: 14px;
+            width: 450px;
+        }
+        .file-name {
+            font-size: 13px;
+        }
+    }
+    .title-page {
+        margin-bottom: 40px;
+        border-bottom: 1px solid #eae9e9;
+        font-size: 18px;
+    }
+    label {
+        font-size: 14px;
+    }
+}
